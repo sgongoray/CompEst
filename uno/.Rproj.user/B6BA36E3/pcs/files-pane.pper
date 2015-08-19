@@ -1,0 +1,9 @@
+{
+    "path" : "~/uno",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

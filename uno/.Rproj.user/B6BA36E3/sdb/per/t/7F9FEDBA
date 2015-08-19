@@ -1,0 +1,17 @@
+{
+    "contents" : "\nlibrary(shiny)\n\nLCG <- function(nsim,M=(2**32),a=1664525,b=1013904223,x0=1){\n  X = c(x0,numeric(nsim-1))\n  for(i in 1:(nsim-1)){\n    X[i+1]<-(a*X[i]+b) %% M\n  }\n  return (X/M)\n}\n\nshinyServer(function(input, output) {\n  \n  output$distPlot <- renderPlot({\n    \n    # generate bins based on input$bins from ui.R\n    x    <- LCG(input$nsim)\n    l<-input$l\n    x<-sapply(x,function(x){\n      log(1-x)/-l\n    })\n    #plot(x[-input$nsim],x[-1])\n    hist(x)\n  })\n  \n})",
+    "created" : 1439999516494.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2695837218",
+    "id" : "7F9FEDBA",
+    "lastKnownWriteTime" : 1440007666,
+    "path" : "~/.local/share/Trash/files/CompEst/CompEsta/uno/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
